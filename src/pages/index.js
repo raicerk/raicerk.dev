@@ -9,7 +9,7 @@ const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
     <h1>Bienvenidos a Raicerk.dev</h1>
-    <p>Welcome to your new Gatsby site.</p>
+    <p>Juan Mora</p>
     <p>Now go build something great.</p>
     <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
       <Image />
