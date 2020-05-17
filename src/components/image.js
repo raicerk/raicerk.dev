@@ -25,8 +25,11 @@ const Image = () => {
       }
     }
   `)
-  return <div>aca ira una imagen bien chida wey!</div>
-  //return <Img fluid={data.placeholderImage.childImageSharp.fluid} />
+
+  console.log(data);
+  
+  //return <div>aca ira una imagen bien chida wey!</div>
+  return <Img fluid={data.placeholderImage.childImageSharp.fluid} />
 }
 
 export default Image
