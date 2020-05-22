@@ -7,9 +7,7 @@ import { defineCustomElements as deckDeckGoHighlightElement } from "@deckdeckgo/
 import "./code.css"
 
 const Codigo = ({ code }) => {
-  deckDeckGoHighlightElement().then(res => {
-      console.log(res)
-  })
+  deckDeckGoHighlightElement()
   return (
     <div>
       <deckgo-highlight-code>
