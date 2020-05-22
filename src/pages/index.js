@@ -23,7 +23,7 @@ const welcome = () => {
 `}
       />
       <div>
-        <h1>Este es el incio de mi blog personal</h1>
+        <h1>welcome();</h1>
         <p>Este es un parrafo</p>
       </div>
       <Link to="/page-2/">Ir a la pagina 2</Link>
