@@ -25,11 +25,8 @@ const Image = () => {
       }
     }
   `)
-
-  console.log(data);
-  
   //return <div>aca ira una imagen bien chida wey!</div>
-  return <Img fluid={data.placeholderImage.childImageSharp.fluid} />
+  return <Img fluid={data.placeholderImage.childImageSharp.fluid} loading="lazy"/>
 }
 
 export default Image
