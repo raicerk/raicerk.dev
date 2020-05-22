@@ -1,0 +1,3 @@
+div.deckgo-highlight-code-container code {
+  overflow: var(--deckgo-highlight-code-carbon-overflow, hidden);
+}

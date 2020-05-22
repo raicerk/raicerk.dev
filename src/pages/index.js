@@ -1,32 +1,27 @@
 import React from "react"
 import { Link } from "gatsby"
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import Image from "../components/image"
+import Layout from "../components/layout/layout"
+import SEO from "../components/seo/seo"
+import Image from "../components/image/image"
 
-import "@deckdeckgo/highlight-code"
-import { defineCustomElements as deckDeckGoHighlightElement } from "@deckdeckgo/highlight-code/dist/loader"
+import Code from "../components/code/code"
 
 const IndexPage = () => {
-  deckDeckGoHighlightElement()
   return (
     <Layout>
       <SEO title="Inicio" />
-
-      <div>
-        <deckgo-highlight-code>
-          <code slot="code">
-            {
-              `
-const constante = () => {
-  return true
+      <Code
+        code={`
+const welcome = () => {
+  const blog = []
+  const languages = ['JavaScript', 'TypeScript', 'Python', 'PHP']
+  const frameworks_libraries = ['Angular', 'React', 'Vuejs', 'Nodejs', 'Express']
+  const databases = ['MongoDB', 'Firebase Realtime', 'Firebase FireStore', 'Postgres']
+  return blog.concat(languages, frameworks_libraries, databases)
 }
-              `
-            }
-          </code>
-        </deckgo-highlight-code>
-      </div>
+`}
+      />
       <div>
         <h1>Este es el incio de mi blog personal</h1>
         <p>Este es un parrafo</p>
