@@ -1,9 +1,9 @@
 ---
 path: '/mi-experiencia-con-node'
 title: 'Mi experiencia con Nodejs'
-description: 'This is a description of this posts'
+description: 'esta es la descripcion del post'
 date: 2018-03-04
-published: false
+published: true
 ---
 
 Una de las ultimas tecnologías que se ha introducido a nuestra cartera de posibilidades es la metodología serverless, en mi opinión una de las mas convenientes, con un muy buen balance de costo y beneficio. Utilizando este se reduce mucho el tiempo de despliegue de una aplicación y dedicarle más tiempo a la programación de funciones que aporten valor.

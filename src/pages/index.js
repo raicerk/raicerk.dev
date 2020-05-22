@@ -7,7 +7,7 @@ import Image from "../components/image/image"
 
 import Code from "../components/code/code"
 
-const IndexPage = () => {
+const IndexPage = ({data}) => {
   return (
     <Layout>
       <SEO title="Inicio" />
@@ -24,7 +24,18 @@ const welcome = () => {
       />
       <div>
         <h1>welcome();</h1>
-        <p>Este es un parrafo</p>
+        <section className="blog container has-text-centered">
+      {data.allMarkdownRemark.edges.map(post => (
+        <Link
+          key={post.node.id}
+          to={post.node.frontmatter.path}>
+          <article>
+            <h1>{post.node.frontmatter.title}</h1>
+            <p>{post.node.frontmatter.description}</p>
+          </article>
+        </Link>
+      ))}
+    </section>
       </div>
       <Link to="/page-2/">Ir a la pagina 2</Link>
       <br />
@@ -35,5 +46,26 @@ const welcome = () => {
     </Layout>
   )
 }
+
+export const pageQuery = graphql `
+  query IndexQuery {
+    allMarkdownRemark(
+      limit: 10
+      sort: { fields: [frontmatter___date], order: DESC}
+      filter: {frontmatter: {published: {eq: true}}}) {
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            path
+            description
+            date
+          }
+        }
+      }
+    }
+  }
+`
 
 export default IndexPage
