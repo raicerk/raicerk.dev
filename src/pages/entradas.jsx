@@ -5,17 +5,23 @@ import Layout from "../components/layout/layout"
 import SEO from "../components/seo/seo"
 
 const entradasPage = ({ data }) => {
-  const post = data.markdownRemark
-  return (
-    <Layout>
-      <SEO title="Page two" />
-      <h1 className="name">{post.frontmatter.title}</h1>
-      <article className="content post">
-        <div dangerouslySetInnerHTML = {{__html: post.html}} />
-      </article>
-      <Link to="/">Go back to the homepage</Link>
-    </Layout>
-  )
+  if(data.markdownRemark){
+    return (
+      <Layout>
+        <SEO title={data.markdownRemark.frontmatter.title} />
+        <h1 className="name">{data.markdownRemark.frontmatter.title}</h1>
+        <article className="content post">
+          <div dangerouslySetInnerHTML = {{__html: data.markdownRemark.html}} />
+        </article>
+        <Link to="/">Go back to the homepage</Link>
+      </Layout>
+    )
+  }else{
+    return (
+      <div>Aca no hay nada</div>
+    )
+  }
+  
 }
 
 export default entradasPage
