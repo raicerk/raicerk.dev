@@ -3,11 +3,10 @@ import { Link } from "gatsby"
 
 import Layout from "../components/layout/layout"
 import SEO from "../components/seo/seo"
-import Image from "../components/image/image"
 
 import Code from "../components/code/code"
 
-const IndexPage = () => {
+const IndexPage = ({data}) => {
   return (
     <Layout>
       <SEO title="Inicio" />
@@ -23,17 +22,49 @@ const welcome = () => {
 `}
       />
       <div>
+        <br/>
         <h1>welcome();</h1>
-        <p>Este es un parrafo</p>
-      </div>
-      <Link to="/page-2/">Ir a la pagina 2</Link>
-      <br />
-      <Link to="/about/">Ir a nosotros</Link>
-      <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-        <Image />
+        <section className="blog container has-text-centered">
+          {data.allMarkdownRemark.edges.map(post => (
+            
+              <Link key={post.node.id} to={post.node.frontmatter.path} style={{
+                display: "block",
+                margin: "0 0 1rem 0"
+              }}>
+                &lt;article&gt;
+                <article>
+                  <h3>{post.node.frontmatter.title}</h3>
+                  <p>{post.node.frontmatter.description}</p>
+                </article>
+                &lt;/article&gt;
+              </Link>
+            
+          ))}
+        </section>
       </div>
     </Layout>
   )
 }
+
+export const pageQuery = graphql `
+  query IndexQuery {
+    allMarkdownRemark(
+      limit: 10
+      sort: { fields: [frontmatter___date], order: DESC}
+      filter: {frontmatter: {published: {eq: true}}}) {
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            path
+            description
+            date
+          }
+        }
+      }
+    }
+  }
+`
 
 export default IndexPage
